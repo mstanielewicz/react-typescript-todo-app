@@ -31,7 +31,7 @@ const TodoList: React.FunctionComponent<ITodoListProps> = ({
 
   const form = useForm<ITodoListState>({
     defaultValues: { name },
-    mode: "onSubmit",
+    mode: "onChange",
   });
 
   const submit = (data: ITodoListState) => {
@@ -68,8 +68,16 @@ const TodoList: React.FunctionComponent<ITodoListProps> = ({
                   <form onSubmit={form.handleSubmit(submit)}>
                     <Controller
                       as={TextField}
+                      error={!!form.errors.name?.type}
+                      helperText={form.errors.name?.message}
                       name="name"
                       placeholder="List name..."
+                      rules={{
+                        maxLength: {
+                          value: 50,
+                          message: "50 characters allowed!",
+                        },
+                      }}
                       size="medium"
                     />
                     <IconButton color="primary" type="submit">

@@ -35,8 +35,16 @@ const TodoForm: React.FunctionComponent<ITodoFormProps> = ({
             <Grid item>
               <Controller
                 as={TextField}
+                error={!!form.errors.title?.type}
+                helperText={form.errors.title?.message}
                 name="title"
                 placeholder="Todo title..."
+                rules={{
+                  maxLength: {
+                    value: 50,
+                    message: "50 characters allowed!",
+                  },
+                }}
               />
             </Grid>
             <Grid item>
