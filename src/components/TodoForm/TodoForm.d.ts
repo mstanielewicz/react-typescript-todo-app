@@ -6,6 +6,6 @@ export interface ITodoFormProps {
 }
 
 export interface ITodoFormState {
-  date: Date;
+  date: string;
   title: string;
 }

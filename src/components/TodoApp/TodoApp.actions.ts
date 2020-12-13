@@ -13,7 +13,7 @@ export const updateListName = (
 export const addTodo = (
   listId: string,
   todo: {
-    date: Date;
+    date: string;
     title: string;
   }
 ): TodoAppActionType => ({

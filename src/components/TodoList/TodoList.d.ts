@@ -1,4 +1,5 @@
 import React from "react";
+import { ITodo } from "../../interfaces";
 
 export interface ITodoListProps {
   dispatch: React.Dispatch;

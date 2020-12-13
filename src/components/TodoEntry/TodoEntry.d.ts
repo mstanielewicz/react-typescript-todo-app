@@ -1,7 +1,8 @@
 import React from "react";
 
 export interface ITodoEntryProps {
-  date: Date;
+  bgcolor: string;
+  dateText: string | null;
   dispatch: React.Dispatch;
   done: boolean;
   id: string;
