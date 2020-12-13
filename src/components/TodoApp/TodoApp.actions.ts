@@ -1,5 +1,4 @@
 import shortid from "shortid";
-import { ITodo } from "../../interfaces";
 import { TodoAppActionType } from "./TodoApp";
 
 export const updateListName = (
@@ -33,8 +32,23 @@ export const toggleDone = (listId: string, id: string): TodoAppActionType => ({
   listId,
 });
 
-export const updateTodo = (listId: string, todo: ITodo): TodoAppActionType => ({
-  type: "UPDATE_TODO",
+export const deleteTodo = (listId: string, id: string): TodoAppActionType => ({
+  type: "DELETE_TODO",
+  id,
   listId,
-  todo,
+});
+
+export const moveTodoUp = (listId: string, id: string): TodoAppActionType => ({
+  type: "MOVE_TODO_UP",
+  id,
+  listId,
+});
+
+export const moveTodoDown = (
+  listId: string,
+  id: string
+): TodoAppActionType => ({
+  type: "MOVE_TODO_DOWN",
+  id,
+  listId,
 });

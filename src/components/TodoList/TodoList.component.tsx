@@ -1,6 +1,7 @@
 import React from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { updateListName } from "../TodoApp/TodoApp.actions";
+import TodoEntry from "../TodoEntry";
 import TodoForm from "../TodoForm";
 import { ITodoListProps, ITodoListState } from "./TodoList";
 
@@ -44,7 +45,7 @@ const TodoList: React.FunctionComponent<ITodoListProps> = ({
       </div>
       <div>
         {todos.map((todo) => (
-          <div key={todo.id}>{JSON.stringify(todo)}</div>
+          <TodoEntry dispatch={dispatch} key={todo.id} listId={id} {...todo} />
         ))}
       </div>
       <div>
