@@ -3,13 +3,19 @@ import { Controller, FormProvider, useForm } from "react-hook-form";
 import { addTodo } from "../TodoApp/TodoApp.actions";
 import { ITodoFormProps, ITodoFormState } from "./TodoForm";
 
-const TodoForm: React.FunctionComponent<ITodoFormProps> = ({ dispatch }) => {
+const TodoForm: React.FunctionComponent<ITodoFormProps> = ({
+  dispatch,
+  listId,
+}) => {
   const form = useForm<ITodoFormState>({
     defaultValues: { date: "", title: "" },
     mode: "onChange",
   });
 
-  const submit = (data: ITodoFormState) => dispatch(addTodo(data));
+  const submit = (data: ITodoFormState) => {
+    dispatch(addTodo(listId, data));
+    form.reset();
+  };
 
   return (
     <div>

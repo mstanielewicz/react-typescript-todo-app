@@ -1,5 +1,5 @@
 import React from "react";
-import TodoForm from "../TodoForm";
+import TodoList from "../TodoList";
 import reducer, { initialState } from "./TodoApp.reducer";
 
 const TodoApp = () => {
@@ -8,7 +8,10 @@ const TodoApp = () => {
   return (
     <div>
       {JSON.stringify(state)}
-      <TodoForm dispatch={dispatch} />
+
+      {state.todoLists.map((list) => (
+        <TodoList dispatch={dispatch} key={list.id} {...list} />
+      ))}
     </div>
   );
 };
